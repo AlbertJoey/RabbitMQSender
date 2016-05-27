@@ -21,11 +21,11 @@ namespace testRabbitMQSender
 
             //    for (int i=0; i < 10; i++)
             //    {
-            //        channel.QueueDeclare(queue: "hello",
-            //                                durable: false,
-            //                                exclusive: false,
-            //                                autoDelete: false,
-            //                                arguments: null);
+            //channel.QueueDeclare(queue: "hello",
+            //                        durable: false,
+            //                        exclusive: false,
+            //                        autoDelete: false,
+            //                        arguments: null);
             //        string message = "Hello World!";
             //        var body = Encoding.UTF8.GetBytes(message);
             //        channel.BasicPublish(exchange: "",
@@ -43,7 +43,7 @@ namespace testRabbitMQSender
             #endregion
 
             #region Work queues
-            //var factory = new ConnectionFactory() { HostName = "192.168.100.37", Password = "Git123!@#", UserName = "GitAdmin", Port = 5672 };
+            //var factory = new ConnectionFactory() { HostName = "219.143.6.91", Password = "Git123!@#", UserName = "GitAdmin", Port = 5672 };
             //using (var connection = factory.CreateConnection())
             //using (var channel = connection.CreateModel())
             //{
@@ -55,7 +55,7 @@ namespace testRabbitMQSender
             //                         exclusive: false,
             //                         autoDelete: false,
             //                         arguments: null);
-            //        args[0] = string.Format("this my test time: {0} ",i+1);
+            //        args[0] = string.Format("this my test time: {0} ", i + 1);
             //        var message = GetMessage(args);
             //        var body = Encoding.UTF8.GetBytes(message);
 
@@ -238,4 +238,8 @@ namespace testRabbitMQSender
             connection.Close();
         }
     }
+
+    //标注：rabbitMQ使用流程(发送端)
+    //创建连接connection = factory.CreateConnection()--不每次都直接使用连接而是通过建立连接再通道上信息交互，减少资源浪费提高性能
+    //创建通道channel = connection.CreateModel()
 }
